@@ -1,11 +1,19 @@
+
 package org.uv.dapp02practica03;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-@Entity
+
+@Entity 
 @Table(name = "empleados")
-public class EmpleadoPojo implements Serializable {
+public class EmpleadoPojo implements Serializable{
     
     @Id
     @GeneratedValue(generator = "empleados_clave_seq",
@@ -14,13 +22,13 @@ public class EmpleadoPojo implements Serializable {
                         sequenceName = "empleados_clave_seq", initialValue = 1,
                         allocationSize = 1)
     @Column
-    private Long clave;
+     private Long clave;
     
     @Column
-    private String nombre;
+     private String nombre;
     
     @Column
-    private String direccion;
+     private String direccion;
     
     @Column
     private String telefono;
@@ -56,14 +64,5 @@ public class EmpleadoPojo implements Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    @Override
-    public String toString() {
-        return "Empleado { " +
-                "ID=" + clave +
-                ", Nombre='" + nombre + '\'' +
-                ", Dirección='" + direccion + '\'' +
-                ", Teléfono='" + telefono + '\'' +
-                " }";
-    }
+    
 }
